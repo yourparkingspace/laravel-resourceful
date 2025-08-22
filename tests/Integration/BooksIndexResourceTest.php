@@ -28,7 +28,7 @@ class BooksIndexResourceTest extends ResourceTestCase
      */
     protected function produce(int $amount)
     {
-        /** @var Book|Collection<Book> $books */
+        /** @var \Netsells\Http\Resources\Tests\Integration\Database\Models\Book|Collection<Book> $books */
         $books = Book::factory()->count($amount > 1 ? $amount : null)->forAuthor()->create();
 
         $this->assignAuthors();
@@ -66,6 +66,7 @@ class BooksIndexResourceTest extends ResourceTestCase
                 ->where('id', '!=', $book->author_id)
                 ->get();
 
+                
             $book->coauthors()->saveMany($otherAuthors);
         });
     }

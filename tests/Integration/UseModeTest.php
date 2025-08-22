@@ -13,7 +13,7 @@ class UseModeTest extends TestCase
 {
     public function test_use_loads_and_provides_single_relation()
     {
-        /** @var Book $book */
+        /** @var \Netsells\Http\Resources\Tests\Integration\Database\Models\Book $book */
         $book = Book::factory()->forAuthor()->create()->fresh();
 
         BookWithSingleRelation::make($book)
@@ -27,7 +27,7 @@ class UseModeTest extends TestCase
 
     public function test_use_loads_and_provides_multiple_relations()
     {
-        /** @var Book $book */
+        /** @var \Netsells\Http\Resources\Tests\Integration\Database\Models\Book $book */
         $book = Book::factory()->forAuthor()->create()->fresh();
 
         BookWithMultiRelations::make($book)
@@ -42,7 +42,7 @@ class UseModeTest extends TestCase
 
     public function test_use_skips_missing_value()
     {
-        /** @var Book $book */
+        /** @var \Netsells\Http\Resources\Tests\Integration\Database\Models\Book $book */
         $book = Book::factory()->forAuthor()->create()->fresh();
 
         $response = BookWithMissingRelation::make($book)

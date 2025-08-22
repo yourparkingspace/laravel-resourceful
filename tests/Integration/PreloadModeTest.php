@@ -10,7 +10,7 @@ class PreloadModeTest extends TestCase
 {
     public function test_preload_loads_single_relation_on_resource()
     {
-        /** @var Book $book */
+        /** @var \Netsells\Http\Resources\Tests\Integration\Database\Models\Book $book */
         $book = Book::factory()->forAuthor()->create()->fresh();
 
         BookWithSingleRelation::make($book)->response();
@@ -20,7 +20,7 @@ class PreloadModeTest extends TestCase
 
     public function test_preload_loads_multiple_relations_on_resource()
     {
-        /** @var Book $book */
+        /** @var \Netsells\Http\Resources\Tests\Integration\Database\Models\Book $book */
         $book = Book::factory()->forAuthor()->create()->fresh();
 
         BookWithMultiRelations::make($book)->response();
@@ -31,7 +31,7 @@ class PreloadModeTest extends TestCase
 
     public function test_preload_loads_single_relation_on_resource_collection()
     {
-        /** @var Book[] $books */
+        /** @var \Netsells\Http\Resources\Tests\Integration\Database\Models\Book[] $books */
         $books = Book::factory()->count(3)->forAuthor()->create()->fresh();
 
         BookWithSingleRelation::collection($books)->response();
@@ -43,7 +43,7 @@ class PreloadModeTest extends TestCase
 
     public function test_preload_loads_multiple_relations_on_resource_collection()
     {
-        /** @var Book[] $books */
+        /** @var \Netsells\Http\Resources\Tests\Integration\Database\Models\Book[] $books */
         $books = Book::factory()->count(3)->forAuthor()->create()->fresh();
 
         BookWithMultiRelations::collection($books)->response();

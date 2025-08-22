@@ -2,7 +2,6 @@
 
 namespace Netsells\Http\Resources\Tests\Integration\Database\Models;
 
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -18,9 +17,9 @@ use Netsells\Http\Resources\Tests\Integration\Database\Factories\BookFactory;
  * @property string $text
  * @property Shelf $shelf
  * @property Author $author
- * @property Collection|Author[] $coauthors
- * @property Collection|Genre[] $genres
- * @property Collection|Book[] $relatedBooks
+ * @property \Illuminate\Database\Eloquent\Collection|Author[] $coauthors
+ * @property \Illuminate\Database\Eloquent\Collection|Genre[] $genres
+ * @property \Illuminate\Database\Eloquent\Collection|Book[] $relatedBooks
  */
 class Book extends Model
 {
@@ -28,26 +27,31 @@ class Book extends Model
 
     public $timestamps = false;
 
+    /** @return BelongsTo<Shelf, $this> */
     public function shelf(): BelongsTo
     {
         return $this->belongsTo(Shelf::class);
     }
 
+    /** @return BelongsTo<Author, $this> */
     public function author(): BelongsTo
     {
         return $this->belongsTo(Author::class);
     }
 
+    /** @return BelongsToMany<Author, $this> */
     public function coauthors(): BelongsToMany
     {
         return $this->belongsToMany(Author::class, 'book_coauthor', 'book_id', 'author_id');
     }
 
+    /** @return BelongsToMany<Genre, $this> */
     public function genres(): BelongsToMany
     {
         return $this->belongsToMany(Genre::class);
     }
 
+    /** @return BelongsToMany<Book, $this> */
     public function relatedBooks(): BelongsToMany
     {
         return $this->belongsToMany(Book::class, 'related_books', 'book_id', 'related_book_id');
