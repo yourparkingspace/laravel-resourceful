@@ -1,5 +1,5 @@
 includes:
-    - ./vendor/netsells/code-standards-laravel/phpstan/extension.neon
+    - ../../../larastan/larastan/extension.neon
 
 parameters:
     paths:

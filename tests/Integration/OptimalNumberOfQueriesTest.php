@@ -5,6 +5,7 @@ namespace Netsells\Http\Resources\Tests\Integration;
 use Netsells\Http\Resources\Tests\Integration\Database\Models\Library;
 use Netsells\Http\Resources\Tests\Integration\Resources\Basic;
 use Netsells\Http\Resources\Tests\Integration\Resources\Super;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 class OptimalNumberOfQueriesTest extends TestCase
 {
@@ -20,9 +21,7 @@ class OptimalNumberOfQueriesTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider resourceProvider
-     */
+    #[DataProvider('resourceProvider')]
     public function test_creates_as_many_queries_as_eager_loading_resource_collection(string $basicClass, string $superClass)
     {
         $this->fullLibraryFactory()->create();
@@ -52,9 +51,7 @@ class OptimalNumberOfQueriesTest extends TestCase
         $this->assertEquals(count($optimalQueryLog), count($normalQueryLog));
     }
 
-    /**
-     * @dataProvider resourceProvider
-     */
+    #[DataProvider('resourceProvider')]
     public function test_creates_as_many_queries_as_lazy_eager_loading_resource_collection(string $basicClass, string $superClass)
     {
         $this->fullLibraryFactory()->create();
@@ -78,9 +75,7 @@ class OptimalNumberOfQueriesTest extends TestCase
         $this->assertEquals(count($optimalQueryLog), count($normalQueryLog));
     }
 
-    /**
-     * @dataProvider resourceProvider
-     */
+    #[DataProvider('resourceProvider')]
     public function test_creates_as_many_queries_as_eager_loading_resource(string $basicClass, string $superClass)
     {
         $this->fullLibraryFactory()->create();
@@ -110,9 +105,7 @@ class OptimalNumberOfQueriesTest extends TestCase
         $this->assertEquals(count($optimalQueryLog), count($normalQueryLog));
     }
 
-    /**
-     * @dataProvider resourceProvider
-     */
+    #[DataProvider('resourceProvider')]
     public function test_creates_as_many_queries_as_lazy_eager_loading_resource(string $basicClass, string $superClass)
     {
         $this->fullLibraryFactory()->create();

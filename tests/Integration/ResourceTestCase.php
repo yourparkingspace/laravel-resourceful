@@ -4,6 +4,7 @@ namespace Netsells\Http\Resources\Tests\Integration;
 
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 abstract class ResourceTestCase extends TestCase
 {
@@ -13,9 +14,7 @@ abstract class ResourceTestCase extends TestCase
 
     protected int $collectionSize = 4;
 
-    /**
-     * @dataProvider resourceProvider
-     */
+    #[DataProvider('resourceProvider')]
     public function test_super_reduces_queries_over_basic_resource_and_both_match(string $basicClass, string $superClass)
     {
         /** @var Model $model */
@@ -32,9 +31,7 @@ abstract class ResourceTestCase extends TestCase
         $this->assert($basicResource, $basicQueryLog, $superResource, $superQueryLog);
     }
 
-    /**
-     * @dataProvider resourceProvider
-     */
+    #[DataProvider('resourceProvider')]
     public function test_super_reduces_queries_over_basic_resource_collection_and_both_match(string $basicClass, string $superClass)
     {
         /** @var Collection $models */
