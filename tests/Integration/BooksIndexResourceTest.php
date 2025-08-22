@@ -66,6 +66,7 @@ class BooksIndexResourceTest extends ResourceTestCase
                 ->where('id', '!=', $book->author_id)
                 ->get();
 
+                
             $book->coauthors()->saveMany($otherAuthors);
         });
     }

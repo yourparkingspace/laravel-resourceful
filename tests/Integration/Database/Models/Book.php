@@ -27,26 +27,31 @@ class Book extends Model
 
     public $timestamps = false;
 
+    /** @return BelongsTo<Shelf, $this> */
     public function shelf(): BelongsTo
     {
         return $this->belongsTo(Shelf::class);
     }
 
+    /** @return BelongsTo<Author, $this> */
     public function author(): BelongsTo
     {
         return $this->belongsTo(Author::class);
     }
 
+    /** @return BelongsToMany<Author, $this> */
     public function coauthors(): BelongsToMany
     {
         return $this->belongsToMany(Author::class, 'book_coauthor', 'book_id', 'author_id');
     }
 
+    /** @return BelongsToMany<Genre, $this> */
     public function genres(): BelongsToMany
     {
         return $this->belongsToMany(Genre::class);
     }
 
+    /** @return BelongsToMany<Book, $this> */
     public function relatedBooks(): BelongsToMany
     {
         return $this->belongsToMany(Book::class, 'related_books', 'book_id', 'related_book_id');

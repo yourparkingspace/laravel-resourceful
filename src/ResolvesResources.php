@@ -35,6 +35,7 @@ trait ResolvesResources
     public function resolve($request = null)
     {
         if ($this->resolvingRoot) {
+            /** @phpstan-ignore-next-line */
             if (method_exists($this, 'beforeResolveRoot')) {
                 $this->beforeResolveRoot($request);
             }
