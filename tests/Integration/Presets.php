@@ -2,7 +2,6 @@
 
 namespace Netsells\Http\Resources\Tests\Integration;
 
-use Faker\Generator as Faker;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Netsells\Http\Resources\Tests\Integration\Database\Models\Author;
 use Netsells\Http\Resources\Tests\Integration\Database\Models\Book;
@@ -10,7 +9,7 @@ use Netsells\Http\Resources\Tests\Integration\Database\Models\Library;
 use Netsells\Http\Resources\Tests\Integration\Database\Models\Shelf;
 
 /**
- * @property Faker $faker
+ * @property \Faker\Generator $faker
  */
 trait Presets
 {

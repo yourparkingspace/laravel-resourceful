@@ -24,7 +24,7 @@ abstract class TestCase extends BaseTestCase
 
     protected function withQueryLog(mixed &$queryLog, callable $fn): mixed
     {
-        /** @var Connection $connection */
+        /** @var \Illuminate\Database\Connection $connection */
         $connection = $this->app->get(Connection::class);
         $connection->enableQueryLog();
         $connection->flushQueryLog();

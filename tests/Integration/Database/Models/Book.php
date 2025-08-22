@@ -2,7 +2,6 @@
 
 namespace Netsells\Http\Resources\Tests\Integration\Database\Models;
 
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -18,9 +17,9 @@ use Netsells\Http\Resources\Tests\Integration\Database\Factories\BookFactory;
  * @property string $text
  * @property Shelf $shelf
  * @property Author $author
- * @property Collection|Author[] $coauthors
- * @property Collection|Genre[] $genres
- * @property Collection|Book[] $relatedBooks
+ * @property \Illuminate\Database\Eloquent\Collection|Author[] $coauthors
+ * @property \Illuminate\Database\Eloquent\Collection|Genre[] $genres
+ * @property \Illuminate\Database\Eloquent\Collection|Book[] $relatedBooks
  */
 class Book extends Model
 {

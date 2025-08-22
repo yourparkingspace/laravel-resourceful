@@ -27,7 +27,9 @@
   "require-dev": {
     "orchestra/testbench": "^10.0",
     "tmarsteel/mockery-callable-mock": "~2.1",
-    "larastan/larastan": "^3.0"
+    "larastan/larastan": "^3.0",
+    "friendsofphp/php-cs-fixer": "^3.86",
+    "adamwojs/php-cs-fixer-phpdoc-force-fqcn": "^2.0"
   },
   "autoload": {
     "psr-4": {

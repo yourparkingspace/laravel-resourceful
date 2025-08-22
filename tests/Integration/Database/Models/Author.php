@@ -2,7 +2,6 @@
 
 namespace Netsells\Http\Resources\Tests\Integration\Database\Models;
 
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -13,8 +12,8 @@ use Netsells\Http\Resources\Tests\Integration\Database\Factories\AuthorFactory;
  * @property int $id
  * @property string $firstname
  * @property string $lastname
- * @property Collection|Book[] $books
- * @property Collection|Author[] $collaborators
+ * @property \Illuminate\Database\Eloquent\Collection|Book[] $books
+ * @property \Illuminate\Database\Eloquent\Collection|Author[] $collaborators
  */
 class Author extends Model
 {

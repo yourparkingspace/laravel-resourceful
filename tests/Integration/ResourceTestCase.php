@@ -2,8 +2,6 @@
 
 namespace Netsells\Http\Resources\Tests\Integration;
 
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Model;
 use PHPUnit\Framework\Attributes\DataProvider;
 
 abstract class ResourceTestCase extends TestCase
@@ -17,7 +15,7 @@ abstract class ResourceTestCase extends TestCase
     #[DataProvider('resourceProvider')]
     public function test_super_reduces_queries_over_basic_resource_and_both_match(string $basicClass, string $superClass)
     {
-        /** @var Model $model */
+        /** @var \Illuminate\Database\Eloquent\Model $model */
         $model = $this->produce(1)->fresh();
         $basicResource = $this->withQueryLog($basicQueryLog, function () use ($basicClass, $model) {
             return $basicClass::make($model)->response()->content();
@@ -34,7 +32,7 @@ abstract class ResourceTestCase extends TestCase
     #[DataProvider('resourceProvider')]
     public function test_super_reduces_queries_over_basic_resource_collection_and_both_match(string $basicClass, string $superClass)
     {
-        /** @var Collection $models */
+        /** @var \Illuminate\Database\Eloquent\Collection $models */
         $models = $this->produce($this->collectionSize)->fresh();
         $basicResource = $this->withQueryLog($basicQueryLog, function () use ($basicClass, $models) {
             return $basicClass::collection($models)->response()->content();
@@ -77,7 +75,7 @@ abstract class ResourceTestCase extends TestCase
     }
 
     /**
-     * @return Collection|Model
+     * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model
      */
     abstract protected function produce(int $amount);
 }

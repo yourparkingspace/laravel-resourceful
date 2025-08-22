@@ -2,7 +2,6 @@
 
 namespace Netsells\Http\Resources;
 
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\PotentiallyMissing;
 use Illuminate\Support\Arr;
@@ -17,8 +16,8 @@ trait ResolvesResources
     /**
      * Create an HTTP response that represents the object.
      *
-     * @param Request $request
-     * @return JsonResponse
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\JsonResponse
      */
     public function toResponse($request)
     {
@@ -30,7 +29,7 @@ trait ResolvesResources
     /**
      * Resolve the resource to an array.
      *
-     * @param Request|null $request
+     * @param \Illuminate\Http\Request|null $request
      * @return array
      */
     public function resolve($request = null)
