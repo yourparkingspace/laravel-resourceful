@@ -1,5 +1,5 @@
 {
-  "name": "netsells/laravel-resourceful",
+  "name": "yourparkingspace/laravel-resourceful",
   "description": "Laravel API Resources supercharged to get rid of N+1 problems.",
   "type": "library",
   "license": "MIT",
