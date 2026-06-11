@@ -22,10 +22,10 @@
   "require": {
     "php": "^8.2",
     "ext-json": "*",
-    "laravel/framework": "^12.0"
+    "laravel/framework": "^12.0|^13.0"
   },
   "require-dev": {
-    "orchestra/testbench": "^10.0",
+    "orchestra/testbench": "^10.0|^11.0",
     "tmarsteel/mockery-callable-mock": "~2.1",
     "larastan/larastan": "^3.0",
     "friendsofphp/php-cs-fixer": "^3.86",
