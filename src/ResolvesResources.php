@@ -35,15 +35,16 @@ trait ResolvesResources
     public function resolve($request = null)
     {
         if ($this->resolvingRoot) {
-            /** @phpstan-ignore-next-line */
-            if (method_exists($this, 'beforeResolveRoot')) {
-                $this->beforeResolveRoot($request);
-            }
+            $this->beforeResolveRoot($request);
 
             return $this->resolveRoot($request, parent::resolve($request));
         }
 
         return parent::resolve($request);
+    }
+
+    protected function beforeResolveRoot(Request $request): void
+    {
     }
 
     protected function resolveRoot(Request $request, array $initiallyResolved): array
